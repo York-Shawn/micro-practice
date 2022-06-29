@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option go_package = "github.com/York-Shawn/micro-practice/proto";
+
+service ProductService {
+    rpc GetProductList (GetProductListRequest) returns (GetProductListResponse);
+}
+
+message GetProductListRequest {
+    int32 Page = 1;
+    int32 PageSize = 2;
+}
+
+message GetProductListResponse {
+    repeated Product List = 1;
+}
+
+message Product {
+    int32 Id = 1;
+    string Name = 2;
+    int32 Stock = 3;
+    string SKU = 4;
+    bool IsDeleted = 5;
+}
